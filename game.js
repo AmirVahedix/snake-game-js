@@ -9,8 +9,17 @@ function main(currentTime){
 
     lastRenderTime = currentTime
 
-    updateSnake()
-    drawSnake(gameBoard)
+    update()
+    draw()
 }
 
 window.requestAnimationFrame(main)
+
+function update() {
+    updateSnake()
+}
+
+function draw() {
+    gameBoard.innerHTML = ""
+    drawSnake(gameBoard)
+}
