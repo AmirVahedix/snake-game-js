@@ -9,7 +9,10 @@ const gameBoard = document.querySelector('#game-board')
 function main(currentTime){
 
     if(gameOver){
-        return alert('You Lost')
+        if(confirm('you lost. press ok for restart')){
+            window.location = '/'
+        }
+        return
     }
 
     const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
