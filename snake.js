@@ -5,10 +5,13 @@ const SNAKE_BODY = [{ x: 11 , y: 11 }]
 let newSegments = 0
 
 export function update() {
+    addSegments()
+
     const inputDirection = getInputDirection()
     for(let i = SNAKE_BODY.length - 2; i >= 0; i--){
         SNAKE_BODY[i + 1] = { ...SNAKE_BODY[i] }
     }
+    
     SNAKE_BODY[0].x += inputDirection.x
     SNAKE_BODY[0].y += inputDirection.y
 }
@@ -35,4 +38,13 @@ export function onSnake(position){
 
 function equalPositions(pos1, pos2){
     return pos1.x === pos2.x && pos1.y === pos2.y;
+}
+
+
+function addSegments() {
+    for(let i = 0;  i < newSegments; i++){
+        SNAKE_BODY.push({ ...SNAKE_BODY[SNAKE_BODY.length - 1] })
+    }
+
+    newSegments = 0 
 }
